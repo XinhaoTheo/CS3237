@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-image: url('../static/images/background_alert.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            position: relative;
+        }
+
+        .alert-section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        h1 {
+            color: red;
+            font-size: 4rem;
+            margin: 0;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+
+        a {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert-section">
+        <h1>Alert Triggered!</h1>
+        <p>The system has detected a condition requiring your attention.</p>
+        <a href="{{ url_for('home') }}">Go back to the main page</a>
+    </div>
+</body>
+</html>

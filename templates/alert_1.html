@@ -1,0 +1,60 @@
+<!-- templates/alert.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Page</title>
+    
+    <!-- Adding internal styles to position the content -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-image: url('../static/images/background_alert.jpg'); /* Path to background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            position: relative; /* Allow absolute positioning of child elements */
+        }
+
+        .alert-section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Move the section back by half its size */
+            text-align: center; /* Center the text horizontally */
+        }
+
+        h1 {
+            color: red;
+            font-size: 4rem; /* Adjusted size for better fit */
+            margin: 0;
+        }
+
+        p {
+            margin-top: 10px; /* Adjust margin */
+            font-size: 1.5rem;
+        }
+
+        a {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="alert-section">
+        <h1>Alert Triggered!</h1>
+        <p>The system has detected a condition requiring your attention.</p>
+        <a href="{{ url_for('main') }}">Go back to the main page</a>
+    </div>
+
+</body>
+</html>

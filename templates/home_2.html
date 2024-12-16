@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <style>
+        .background-section {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-align: left;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 4rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 2rem;
+            margin-top: 10px;
+        }
+
+        img {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-section">
+        <h1 style="margin: 10px;">Welcome to the Monitoring Dashboard</h1>
+        <p style="margin: 10px;">This is the main page where numerical and image data is processed.</p>
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Website Logo" width="200" height="200" style="margin: 10px;">
+    </div>
+</body>
+</html>
+
+<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+<script type="text/javascript">
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    socket.on('redirect', function(data) {
+        console.log("Redirecting to: " + data.url);
+        window.location.href = data.url;
+    });
+</script>

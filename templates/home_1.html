@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <!-- Link to the local CSS file using Flask's url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Inline CSS for positioning (optional) -->
+    <style>
+        /* Add top-left alignment */
+        .background-section {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-align: left; /* Align text to the left */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 4rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 2rem;
+            margin-top: 10px; /* Add slight space between h1 and p */
+        }
+
+        img {
+            margin-top: 20px; /* Space between text and image */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-section">
+        <h1>Welcome to the Monitoring Dashboard</h1>
+        <p>This is the main page where numerical and image data is processed.</p>
+        
+        <!-- Display the logo using Flask's url_for for the image path -->
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Website Logo" width="200" height="200">
+    </div>
+
+</body>
+</html>
+<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+<script type="text/javascript">
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+    // Listen for the 'redirect' event from the server
+    socket.on('redirect', function(data) {
+        console.log("Redirecting to: " + data.url);
+        window.location.href = data.url;  // Redirect the client to the specified URL
+    });
+</script>
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="images/background.jpg") }}');
+            background-size: cover; /* Make the background cover the entire page */
+            background-position: center; /* Center the background image */
+            height: 100vh; /* Full height */
+            margin: 0; /* Remove default margin */
+            display: flex; /* Use flexbox to center the content */
+            align-items: center; /* Vertically center */
+            justify-content: center; /* Horizontally center */
+            color: white; /* Set text color to white for better contrast */
+        }
+
+        .background-section {
+            text-align: center; /* Center the text inside the section */
+            background: rgba(0, 0, 0, 0.5); /* Optional: add a dark overlay for better text visibility */
+            padding: 20px; /* Add some padding */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 4rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 2rem;
+            margin-top: 10px;
+        }
+
+        img {
+            margin-top: 20px;
+        }
+
+        .link-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .link-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-section">
+        <h1 style="margin: 10px;">Welcome to the Monitoring Dashboard</h1>
+        <p style="margin: 10px;">This is the main page where numerical and image data is processed.</p>
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Website Logo" width="200" height="200" style="margin: 10px;">
+
+        <a href="{{ url_for('latest_image') }}" class="link-button">View Latest Image</a>
+    </div>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        socket.on('redirect', function(data) {
+            console.log("Redirecting to: " + data.url);
+            window.location.href = data.url;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.background-section {
+    background-image: url('../images/background.jpg'); /* Path to background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+
+    /* Padding to create space between content and the border */
+    padding: 20px; /* Adjust this value to increase/decrease spacing */
+    text-align: left;
+    color: white;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 10px 0; /* Adds space between the heading and paragraph */
+}
+
+img {
+    margin-top: 20px; /* Space between paragraph and the image */
+}
